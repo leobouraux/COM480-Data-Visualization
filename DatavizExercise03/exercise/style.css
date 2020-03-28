@@ -17,18 +17,6 @@ to
 }
 
 /*
-We use CSS variables to avoid repetition
-https://developer.mozilla.org/en-US/docs/Web/CSS/--*
-*/
-:root {
-	--theme-color-light: rgb(160, 160, 160);
-	--theme-color-dark: rgb(45, 36, 50);
-	--theme-background: rgb(25, 35, 41);
-	--theme-dark-blue: rgba(0, 44, 122, 0.5);
-	--theme-light-blue: rgba(0, 156, 250, 0.6);
-}
-
-/*
 Make the document fill the whole viewport, this overrides any weird defaults that browsers might have.
 */
 html, body, figure {
@@ -36,15 +24,12 @@ html, body, figure {
 	padding: 0;
 	margin: 0;
 	border: 0;
-	background-color: var(--theme-background);
-
 }
 
 /* Default font and size */
 body {
 	font-family: sans-serif;
 	font-size: 1.1rem;
-	color: white;
 }
 
 /*
@@ -64,13 +49,7 @@ The various units of measurement available in CSS:
 
 /* Links: apply our theme color and remove underline */
 a {
-	color: var(--theme-background);
-	text-decoration: none;
-}
-
-b {
-	color: var(--theme-color-light);
-	text-rendering: optimizeSpeed;
+	color: rgb(0, 44, 122);
 	text-decoration: none;
 }
 
@@ -82,7 +61,7 @@ p {
 /* Titles: set color and sizes */
 h1, h2, h3, h4, h5, h6
 {
-	color: var(--theme-color-light)
+	color: rgb(0, 44, 122);
 }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.75rem; }
@@ -135,8 +114,7 @@ nav li {
 	padding-top: 5rem;
 	padding-bottom: 5rem;
 
-	background-color: var(--theme-color-dark);
-	background: linear-gradient(0deg, var(--theme-background), var(--theme-color-light));
+	background-color: rgb(0, 44, 122);
 
 	/* Center the title using flexbox */
 	display: flex;
@@ -148,28 +126,7 @@ nav li {
 .title-row h1 {
 	font-size: 2.5rem;
 	color: white;
-	text-shadow: black 0 0 0.6rem;
 	font-variant: small-caps;
-}
-
-.light_back {
-	color: black;
-	background-color: var(--theme-color-light);
-}
-
-.box {
-	padding-left: 2rem;
-	padding-right: 2rem;
-	margin-bottom: 1rem;
-
-	background-color: var(--theme-dark-blue);
-
-	border: 2px solid var(--theme-dark-blue);
-	border-radius: 2rem;
-}
-
-.box-title {
-	color: var(--theme-light-blue);
 }
 
 .viz-row {
@@ -179,17 +136,80 @@ nav li {
 	justify-content: center;
 	align-items: center;
 
+	margin-top: 2rem;
 	padding-top: 2rem;
 	padding-bottom: 2rem;
 
-	background-color: var(--theme-background);
+	background-color: rgb(50, 50, 50);
 }
 
-figure embed {
+figure > * {
 	width: 100%;
+	height: auto;
 }
 
 
 footer {
 	padding-bottom: 5rem;
+}
+
+button {
+	display: block;
+
+	margin: 0.75rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0.75rem;
+
+	border: 2px blue solid;
+	border-radius: 1rem;
+
+	background: rgb(150, 200, 255);
+
+	font-weight: bold;
+	font-size: 1.5rem;
+
+}
+
+textarea {
+	width: 100%;
+	height: 30rem;
+
+	font-family: sans-serif;
+	font-size: 1rem;
+}
+
+#plot-occurrences {
+	height: 18rem;
+
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+
+	color: white;
+	font-size: 1.3rem;
+}
+
+#plot-occurrences > div {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#plot-occurrences .bar {
+	width: 2rem;
+
+	margin-bottom: 0.4rem;
+
+	background: rgb(240, 50, 10);
+}
+
+.label-value {
+	margin-top: 2rem;
+	margin-bottom: 0.25rem;
+	transform: rotate(90deg);
+
+	font-size: 0.8rem;
 }
