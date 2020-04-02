@@ -89,7 +89,7 @@ class Forecast {
 			}
 			this.container.appendChild(newP);
 		}
-	}
+	};
 
 	reload = () => {
 		this.temperatures = TEST_TEMPERATURES;
@@ -109,18 +109,103 @@ whenDocumentLoaded(() => {
 	btn.addEventListener("click", () => {
 		forecast2.reload();
 	});
+
+	//Part 3
+
+	const div_out3 = document.getElementById('weather-part3');
+	const forecast3 = new ForecastOnline(div_out3);
+	btn.addEventListener("click", () => {
+		forecast3.reload();
+	});
+
+
+
+
+
+});
+
+// Part 3 - fetch
+
+const QUERY_LAUSANNE = 'http://api.weatherbit.io/v2.0/forecast/daily?city=Lausanne&days=7&key=ed330abe3f5a4104afd9a6ef10b707ca';
+
+class ForecastOnline extends Forecast {
+	/*reload = () => {
+		this.temperatures = [2, 3, 4, 5, 6, 7, 8];
+		this.show();
+	}*/
+	reload = () => {
+		fetch(QUERY_LAUSANNE)
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+				//console.log('data', jsonToTemperatures(data));
+				this.temperatures = jsonToTemperatures(data);
+			})
+			.then(() => {this.show()});
+	}
+
+}
+
+function jsonToTemperatures(data) {
+	let tab = [];
+	for (const row of data['data']) {
+		tab.push(row['temp'])
+	}
+	return tab;
+}
+
+
+// Part 4 - interactive
+class ForecastOnlineCity extends ForecastOnline {
+
+	setCity = (city) => {
+		this.city = city;
+	};
+
+	reload = () => {
+		const query = ('http://api.weatherbit.io/v2.0/forecast/daily?city='+ this.city + '&days=7&key=ed330abe3f5a4104afd9a6ef10b707ca');
+		fetch(query)
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+				console.log(data);
+				this.temperatures = jsonToTemperatures(data);
+				this.city = data['city_name'];
+			})
+			.then(() => {
+				this.show();
+			});
+	};
+
+	show() {
+		super.show();
+
+		const elem_city_name = document.createElement('h4');
+		elem_city_name.textContent = this.city;
+		this.container.insertBefore(elem_city_name, this.container.children[0]);
+	}
+}
+
+
+
+
+whenDocumentLoaded(() => {
+	const city_query_input = document.getElementById('query-city');
+	const btn_query = document.getElementById('btn-city');
+
+	// Part 2: inheritance
+	const forecast_city = new ForecastOnlineCity(document.getElementById('weather-city'));
+
+	btn_query.addEventListener('click', () => {
+		const new_city_name = city_query_input.value;
+		console.log('Query =', new_city_name);
+
+		forecast_city.setCity(new_city_name);
+		forecast_city.reload();
+	})
 });
 
 
 
-// Part 3 - fetch
-
-const QUERY_LAUSANNE = 'http://query.yahooapis.com/v1/public/yql?format=json&q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="Lausanne") and u="c"';
-
-function yahooToTemperatures(data) {
-}
-
-class ForecastOnline extends Forecast {
-}
-
-// Part 4 - interactive

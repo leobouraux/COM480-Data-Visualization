@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My test page</title>
+  <link href="mystyletest.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<h1>
+  Titre
+</h1>
+<h2>Chapter 1: The dark night</h2>
+<h3>The specter speaks</h3>
+<span style="font-size: 32px; margin: 21px 0; display: block;">Is this a top level heading? No! and color comes from CSS</span>
+
+<p>This is my page et je suis intéressé par les
+  <a href="http://www.deezer.com/album/942295">Moving Pictures</a>.
+</p>
+<p>In HTML, you define a paragraph using the &lt;p&gt; element.</p>
+<!-- <p>comment</p> -->
+<ul>
+  <li>list1</li>
+  <li>list2</li>
+  <li>...</li>
+</ul>
+<ol>
+  <li>Ordered list</li>
+  <li>...</li>
+  <ul>
+    <li>Sublist</li>
+    <li>...</li>
+  </ul>
+</ol>
+
+<img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png">
+
+<video controls src="rabbit320.webm">
+</video>
+<p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.webm">link to the video</a> instead.</p>
+
+<audio controls>
+  <source src="viper.mp3" type="audio/mp3">
+  <source src="viper.ogg" type="audio/ogg">
+</audio>
+
+<h1>Jane Doe</h1>
+<div class="job-title">Web Developer</div>
+<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+
+<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. </p>
+
+<h2>Contact information</h2>
+<ul>
+  <li>Email: <a href="mailto:jane@example.com">jane@example.com</a></li>
+  <li>Web: <a href="http://example.com">http://example.com</a></li>
+  <li>Tel: 123 45678</li>
+</ul>
+
+<svg baseProfile="full"
+     height="200"
+     version="1.1" width="300"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- top left corner considered with positions -->
+  <rect fill="red" height="100%" width="100%" />
+
+  <circle cx="150" cy="100" fill="green" r="80" />
+
+  <text fill="white" font-size="60" text-anchor="middle" x="150" y="100">SVG</text>
+
+</svg>
+
+<svg height="250" version="1.1" width="200" xmlns="http://www.w3.org/2000/svg">
+
+  <rect fill="transparent" height="30" stroke="black" stroke-width="5" width="30" x="10" y="10"/>
+  <rect fill="transparent" height="30" rx="10" ry="10" stroke="black" stroke-width="5" width="30" x="60" y="10"/>
+
+  <circle cx="25" cy="75" fill="transparent" r="20" stroke="red" stroke-width="5"/>
+  <ellipse cx="75" cy="75" fill="transparent" rx="20" ry="5" stroke="red" stroke-width="5"/>
+
+  <line stroke="orange" stroke-width="5" x1="10" x2="50" y1="110" y2="150"/>
+  <polyline fill="transparent"
+            points="30 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 140 105" stroke="orange" stroke-width="5"/>
+
+  <polygon fill="transparent"
+           points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180" stroke="green" stroke-width="5"/>
+  <!-- An uppercase letter specifies absolute coordinates on the page,
+  lowercase letter specifies relative coordinates (e.g., move 10px up and 7px to the left from the last point). -->
+  <path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
+</svg>
+
+<svg height="200" width="200" xmlns="http://www.w3.org/2000/svg">
+
+  <path d="M 10 10 h 80 v 80 h -80 Z" fill="transparent" stroke="black"/>
+  <path d="M 10 10 h 80 v 80 h -80 Z" fill="transparent" stroke="black"/> <!-- are equivalent-->
+
+  <!-- Cubic Beziers Curves -->
+  <path d="M 10 10 C 30 20, 50 20, 50 10" fill="transparent" stroke="black"/>
+  <!-- point init, point de passage 1, point de passage 2, point final -->
+</svg>
+
+<!-- Gradients -->
+
+<p>
+
+  <svg height="240" version="1.1" width="120" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="Gradient1">
+        <stop class="stop1" offset="0%"/>
+        <stop class="stop2" offset="50%"/>
+        <stop class="stop3" offset="100%"/>
+      </linearGradient>
+      <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="50%" stop-color="white" stop-opacity="100"/>
+        <stop offset="100%" stop-color="yellow" stop-opacity="1"/>
+      </linearGradient>
+      <style type="text/css"><![CDATA[
+      #rect1 { fill: url(#Gradient1); }
+      .stop1 { stop-color: red; }
+      .stop2 { stop-color: black; stop-opacity: 0; }
+      .stop3 { stop-color: blue; }
+      ]]></style>
+    </defs>
+
+    <rect height="100" id="rect1" rx="15" ry="15" width="100" x="10" y="10"/>
+    <rect fill="url(#Gradient2)" height="100" rx="15" ry="15" width="100" x="10" y="120"/>
+
+  </svg>
+
+  <svg height="240" version="1.1" width="120" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient cx="0.5"
+                      cy="0.5" fx="0.25" fy="0.25" id="Gradient" r="0.5">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+    </defs>
+
+    <rect fill="url(#Gradient)" height="100" rx="15" ry="15" stroke="black" stroke-width="2"
+          width="100" x="10" y="10"/>
+
+    <circle cx="60" cy="60" fill="transparent" r="50" stroke="white" stroke-width="2"/>
+    <circle cx="35" cy="35" fill="white" r="2" stroke="white"/>
+    <circle cx="60" cy="60" fill="white" r="2" stroke="white"/>
+    <text fill="white" font-family="sans-serif" font-size="10pt" x="38" y="40">(fx,fy)</text>
+    <text fill="white" font-family="sans-serif" font-size="10pt" x="63" y="63">(cx,cy)</text>
+
+  </svg>
+
+  <svg height="200" width="200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="Gradient1">
+        <stop offset="5%" stop-color="white"/>
+        <stop offset="95%" stop-color="blue"/>
+      </linearGradient>
+      <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="5%" stop-color="red"/>
+        <stop offset="95%" stop-color="orange"/>
+      </linearGradient>
+
+      <pattern height=".25" id="Pattern" width=".25" x="0" y="0">
+        <rect fill="skyblue" height="50" width="50" x="0" y="0"/>
+        <rect fill="url(#Gradient2)" height="25" width="25" x="0" y="0"/>
+        <circle cx="25" cy="25" fill="url(#Gradient1)" fill-opacity="0.5" r="20"/>
+      </pattern>
+    </defs>
+
+    <rect fill="url(#Pattern)" height="200" stroke="black" width="200"/>
+  </svg>
+
+</p>
+
+<p>
+  <svg height="200" width="200">
+
+    <path d="M 20,20 C 60,60 100,40 120,20" fill="transparent" id="my_path" />
+    <text>
+      <textPath xlink:href="#my_path" xmlns:xlink="http://www.w3.org/1999/xlink">
+        Ceci est un texte.
+      </textPath>
+    </text>
+  </svg>
+
+</p>
+
+
+<script src="test.js"></script>
+</body>
+</html>
